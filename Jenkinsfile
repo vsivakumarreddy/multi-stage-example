@@ -8,7 +8,7 @@ pipeline {
 
     tools {
         maven 'MVN_HOME'       // Configure Maven in Jenkins Global Tools
-        jdk 'Java21'          // Optional: If not using JDK inside container
+        
     }
 
     stages {
