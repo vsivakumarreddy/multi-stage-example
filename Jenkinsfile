@@ -14,7 +14,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git url: 'https://github.com/manikiran7/multi-stage-example.git', branch: 'master'
+                git url: 'https://github.com/vsivakumarreddy/multi-stage-example.git', branch: 'master'
             }
         }
 
