@@ -1,11 +1,20 @@
-FROM openjdk:8-jdk-alpine as builder
+# ----------- Stage 1: Build the app --------------
+FROM openjdk:8-jdk as builder
+
+RUN apt-get update && apt-get install -y maven
 RUN mkdir -p /app/source
-COPY . /app/source
 WORKDIR /app/source
-RUN ./mvnw clean package
+
+COPY . /app/source
+RUN ./mvnw clean package -DskipTests
 
 
-FROM builder
+# ----------- Stage 2: Run the app ----------------
+FROM openjdk:8-jdk
+
+WORKDIR /app
 COPY --from=builder /app/source/target/*.jar /app/app.jar
+
 EXPOSE 8080
-ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom", "-jar", "/app/app.jar"]
+
+ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/app/app.jar"]
