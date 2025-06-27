@@ -7,7 +7,7 @@ pipeline {
     }
 
     tools {
-        maven 'Maven3'       // Configure Maven in Jenkins Global Tools
+        maven 'MVN_HOME'       // Configure Maven in Jenkins Global Tools
         jdk 'Java21'          // Optional: If not using JDK inside container
     }
 
