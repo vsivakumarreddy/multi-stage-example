@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        DOCKER_IMAGE = 'manikiran7/multi-stage-example'
+        DOCKER_IMAGE = 'shivakumar1111/shivakumar11'
         TAG = 'v0.0.1'
     }
 
